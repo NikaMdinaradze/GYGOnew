@@ -51,4 +51,3 @@ class Place(models.Model):
 class Photo(models.Model):
     place = models.ForeignKey(Place, related_name="photo", on_delete=models.CASCADE)
     image = models.ImageField(upload_to='logos/')
-

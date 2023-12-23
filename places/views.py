@@ -6,13 +6,12 @@ from rest_framework.filters import SearchFilter
 
 
 class PlaceListAPIView(ListAPIView):
-    queryset = Place.objects.all()
     serializer_class = PlaceSerializer
     filter_backends = [SearchFilter]
     search_fields = ['name', 'category', 'full_address']
 
     def get_queryset(self):
-        queryset = Place.objects.all()
+        queryset = Place.objects.prefetch_related('photos').all()
 
         # Filtering
         category = self.request.query_params.get('category', None)

@@ -144,3 +144,19 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS
 }
+
+LOGGING = {
+     "version": 1,
+     "disable_existing_loggers": False,
+     "handlers": {
+         "handler": {
+             "class": "logging.StreamHandler",
+         }
+     },
+     "loggers": {
+         "django.db.backends": {
+             "handlers": ["handler"],
+             "level": "DEBUG",
+         }
+     },
+}
