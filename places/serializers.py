@@ -9,9 +9,9 @@ class PhotoSerializer(serializers.ModelSerializer):
 
 
 class PlaceSerializer(serializers.ModelSerializer):
-    photos = PhotoSerializer(many=True)
+    photos = PhotoSerializer(source="photo", many=True, read_only=True)
 
     class Meta:
         model = Place
-        fields = "description", "photos"
+        fields = "__all__"
 

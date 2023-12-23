@@ -3,40 +3,8 @@ from rest_framework.generics import ListAPIView
 from .models import Place
 from django.db.models import Q
 from rest_framework.filters import SearchFilter
-from drf_spectacular.utils import (
-    extend_schema_view,
-    extend_schema,
-    OpenApiParameter,
-    OpenApiTypes,
-)
 
 
-@extend_schema_view(
-    list=extend_schema(
-        parameters=[
-            OpenApiParameter(
-                'author',
-                OpenApiTypes.STR,
-                description='Filter by Author',
-            ),
-            OpenApiParameter(
-                'genre',
-                OpenApiTypes.STR,
-                description='Filter by Genre',
-            ),
-            OpenApiParameter(
-                'condition',
-                OpenApiTypes.STR,
-                description='Filter by Condition',
-            ),
-            OpenApiParameter(
-                'location',
-                OpenApiTypes.STR,
-                description='Filter by Location',
-            ),
-        ]
-    )
-)
 class PlaceListAPIView(ListAPIView):
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
@@ -53,12 +21,12 @@ class PlaceListAPIView(ListAPIView):
         min_price = self.request.query_params.get('min_price', None)
 
         if category:
-            queryset = queryset.filter(Q(category=category))
+            queryset = queryset.filter(category=category)
         if district:
-            queryset = queryset.filter(Q(district=district))
+            queryset = queryset.filter(district=district)
         if max_price:
-            queryset = queryset.filter(Q(main_price__lte=max_price))
+            queryset = queryset.filter(main_price__lte=max_price)
         if min_price:
-            queryset = queryset.filter(Q(main_price__gte=min_price))
+            queryset = queryset.filter(main_price__gte=min_price)
 
         return queryset
