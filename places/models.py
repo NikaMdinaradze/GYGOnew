@@ -46,8 +46,9 @@ class Place(models.Model):
     custom_price = models.CharField(max_length=255)
     map_link = models.URLField(max_length=255)
     views = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 class Photo(models.Model):
-    place = models.ForeignKey(Place, related_name="photo", on_delete=models.CASCADE)
+    place = models.ForeignKey(Place, related_name="photos", on_delete=models.CASCADE)
     image = models.ImageField(upload_to='logos/')

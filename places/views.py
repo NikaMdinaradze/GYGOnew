@@ -11,7 +11,7 @@ class PlaceListAPIView(ListAPIView):
     search_fields = ['name', 'category', 'full_address']
 
     def get_queryset(self):
-        queryset = Place.objects.prefetch_related('photos').all()
+        queryset = Place.objects.prefetch_related('photos').all().order_by('created_at')
 
         # Filtering
         category = self.request.query_params.get('category', None)

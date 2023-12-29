@@ -9,7 +9,7 @@ class PhotoSerializer(serializers.ModelSerializer):
 
 
 class PlaceSerializer(serializers.ModelSerializer):
-    photos = PhotoSerializer(source="photo", many=True, read_only=True)
+    photos = PhotoSerializer(many=True, read_only=True)
 
     class Meta:
         model = Place
