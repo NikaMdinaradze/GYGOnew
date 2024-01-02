@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     # third_party
     'rest_framework',
     'drf_spectacular',
-    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +121,9 @@ USE_I18N = True
 USE_TZ = True
 
 REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
