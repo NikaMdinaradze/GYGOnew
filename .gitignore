@@ -160,3 +160,10 @@ cython_debug/
 
 .idea/
 
+
+# ignore photos
+*.jpg
+*.jpeg
+*.png
+*.gif
+

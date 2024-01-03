@@ -6,7 +6,7 @@ from django.db import models
 class Place(models.Model):
     name = models.CharField(max_length=255)
     category = models.CharField(max_length=255)
-    logo = models.ImageField(upload_to='logos/')
+    logo = models.ImageField(upload_to='photos/')
 
     monday_open = models.TimeField(null=True, blank=True)
     monday_close = models.TimeField(null=True, blank=True)
@@ -51,4 +51,4 @@ class Place(models.Model):
 
 class Photo(models.Model):
     place = models.ForeignKey(Place, related_name="photos", on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='logos/')
+    image = models.ImageField(upload_to='photos/')

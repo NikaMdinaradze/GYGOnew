@@ -17,5 +17,5 @@ class Text(models.Model):
 
 
 class Banner(models.Model):
-    image = models.ImageField()
+    image = models.ImageField(upload_to="photos/")
     company = models.CharField(max_length=255)
