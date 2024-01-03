@@ -11,8 +11,10 @@ class TextListView(generics.ListAPIView):
     queryset = Text.objects.all().order_by('created_at')
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = TextFilter
+    pagination_class = None
 
 
 class BannerListView(generics.ListAPIView):
     serializer_class = BannerSerializer
     queryset = Banner.objects.all().order_by('created_at')
+    pagination_class = None
