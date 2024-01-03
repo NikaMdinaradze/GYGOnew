@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # my_apps
     'places',
+    'utils',
 
     # third_party
     'rest_framework',

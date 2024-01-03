@@ -16,6 +16,6 @@ class Text(models.Model):
     type = models.CharField(max_length=20, choices=TYPE_CHOICES)
 
 
-class Banner(models):
+class Banner(models.Model):
     image = models.ImageField()
     company = models.CharField(max_length=255)
