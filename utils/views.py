@@ -8,13 +8,11 @@ from utils.filters import TextFilter
 
 class TextListView(generics.ListAPIView):
     serializer_class = TextSerializer
-    queryset = Text.objects.all()
-    ordering = ['id']
+    queryset = Text.objects.all().order_by('created_at')
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = TextFilter
 
 
 class BannerListView(generics.ListAPIView):
     serializer_class = BannerSerializer
-    queryset = Banner.objects.all()
-    ordering = ['id']
+    queryset = Banner.objects.all().order_by('created_at')

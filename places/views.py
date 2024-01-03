@@ -6,7 +6,7 @@ from places.filters import PlaceFilter
 
 
 class PlaceListAPIView(viewsets.ReadOnlyModelViewSet):
-    queryset = Place.objects.all()
+    queryset = Place.objects.all().order_by('created_at')
     serializer_class = PlaceSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = PlaceFilter
