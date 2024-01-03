@@ -14,6 +14,7 @@ class Text(models.Model):
 
     text = models.CharField(max_length=255)
     type = models.CharField(max_length=20, choices=TYPE_CHOICES)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 class Banner(models.Model):
