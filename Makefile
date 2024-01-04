@@ -13,3 +13,7 @@ migrate:
 tests:
 	@echo "running tests docker"
 	python manage.py test
+
+run:
+	@echo "running"
+	python manage.py runserver
