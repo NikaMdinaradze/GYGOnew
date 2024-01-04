@@ -11,6 +11,7 @@ class PhotoInline(admin.TabularInline):
 
 class PlacesAdmin(admin.ModelAdmin):
     inlines = [PhotoInline]
+    list_display = ('name', 'district', 'category', 'created_at')
 
 
 admin.site.register(Place, PlacesAdmin)
