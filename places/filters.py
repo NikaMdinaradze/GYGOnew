@@ -2,6 +2,7 @@ from django_filters import rest_framework as filters
 from places.models import Place
 from django.db import models
 
+
 class PlaceFilter(filters.FilterSet):
     min_price = filters.NumberFilter(field_name="main_price", lookup_expr='gte')
     max_price = filters.NumberFilter(field_name="main_price", lookup_expr='lte')
@@ -11,7 +12,7 @@ class PlaceFilter(filters.FilterSet):
         model = Place
         fields = ("category", "district")
 
-    def custom_search_filter(self, queryset, name, value):
+    def custom_search_filter(self, queryset, name, value): # noqa
         return queryset.filter(
             models.Q(name__icontains=value) |
             models.Q(full_address__icontains=value) |
