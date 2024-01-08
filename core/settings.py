@@ -149,5 +149,27 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS
 }
+from google.oauth2 import service_account
+
+credentials = service_account.Credentials.from_service_account_file(
+    os.path.join(BASE_DIR, "gcs_secrets.json"))
+
+STORAGES_OPTIONS = {
+            "bucket_name": "gygo_photos",
+            "project_id": "eng-unfolding-410419",
+            "credentials": credentials,
+        }
+STORAGES_BACKEND = "storages.backends.gcloud.GoogleCloudStorage"
+
+STORAGES = {
+    "default": {
+        "BACKEND": STORAGES_BACKEND,
+        "OPTIONS": STORAGES_OPTIONS,
+    },
+    "staticfiles": {
+            "BACKEND": STORAGES_BACKEND,
+            "OPTIONS": STORAGES_OPTIONS
+    },
+}
 
 

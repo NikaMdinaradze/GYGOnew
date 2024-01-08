@@ -5,3 +5,5 @@ drf-spectacular==0.26.5
 django-filter==23.5
 pre-commit==3.6.0
 python-dotenv==1.0.0
+django-storages[google]==1.14.2
+google-auth==2.26.1
