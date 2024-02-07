@@ -27,8 +27,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nikamdinaradze.com', 'www.nikamdinaradze.com',
-                 "127.0.0.1", "34.125.51.218"]
+ALLOWED_HOSTS = ["*"]
 
 # cors configuration
 
