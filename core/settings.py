@@ -27,12 +27,15 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost",
+                 "https://gygo.vercel.app",
+                 "https://nikamdinaradze.com",]
 
 # cors configuration
 
 CORS_ALLOWED_ORIGINS = [
     "https://gygo.vercel.app",
+    "https://nikamdinaradze.com",
 ]
 
 # Application definition
@@ -53,11 +56,13 @@ INSTALLED_APPS = [
     # third_party
     'rest_framework',
     'drf_spectacular',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
